@@ -1,78 +1,54 @@
-# Product Name
-> Short blurb about what your product does.
+# Daily Power Usage Forcaster
+> A Time-Series Forcasting Project To Help Me Budget My Monthly Power Bill 
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
+I decided to start this project to help me accurately budget my montly bills. My montly electric bill swings wildly each month, depending on the season and other factors such as the acedemic calendar. I wanted to build a forcast system to automatically tell me how much I should expect to spend each month on power.
+<br>
+<br>
 
-One to two paragraph statement about your product and what it does.
+## Development Process:
+#### EDA:
 
-![](header.png)
+You can see the high variance in my montly power usage with this weekly-usage chart:
+![](img/readme_img/personal_power_usage.png)
 
-## Installation
+In fact, the daily usage data has a variance of 116.44 kWh. In order to make this data have less variance, I used a 7 day moving average for my data.
 
-OS X & Linux:
+To remove further variance and randomness, I decomposed the data into seasonality, trend, and noise/residule.
 
-```sh
-npm install my-crazy-module --save
-```
+Here is the weekly seanonality:
+![](img/readme_img/weekly_season.png)
 
-Windows:
+And the general seasonality:
+![](img/readme_img/season.png)
 
-```sh
-edit autoexec.bat
-```
+Due to a lack of data (Only being a resident for a year), I tested my modeling on a larger dataset, The AEP hourly power demand. I used this data to test a model. As more data becomes avaliable for my personal data, I will use the same process to build a personal model and have it updated montly with new data.
 
-## Usage example
+Here is the weekly demand plot:
+![](img/readme_img/aep.png)
 
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
+And the decomposition:
+![](img/readme_img/AEP_decomp.png)
 
-_For more examples and usage, please refer to the [Wiki][wiki]._
+And the general seasonality:
+![](img/readme_img/AEP_seasonality.png)
 
-## Development setup
+After removing seasonality and data from the data, the trend is the only value left to model:
+![](img/readme_img/trend.png)
 
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
+#### Data/Feature Engineering:
 
-```sh
-make install
-npm test
-```
-
-## Release History
-
-* 0.2.1
-    * CHANGE: Update docs (module code remains unchanged)
-* 0.2.0
-    * CHANGE: Remove `setDefaultXYZ()`
-    * ADD: Add `init()`
-* 0.1.1
-    * FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
-* 0.1.0
-    * The first proper release
-    * CHANGE: Rename `foo()` to `bar()`
-* 0.0.1
-    * Work in progress
 
 ## Meta
 
-Your Name – [@YourTwitter](https://twitter.com/dbader_org) – YourEmail@example.com
+Sam Rossilli – Sarossilli@gmail.com – Srossill@uccs.edu
 
-Distributed under the XYZ license. See ``LICENSE`` for more information.
+[https://github.com/sarossilli/](https://github.com/sarossilli/)
 
-[https://github.com/yourname/github-link](https://github.com/dbader/)
+## Using Your Own Data:
 
-## Contributing
-
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
+1. Fork it (<https://github.com/sarossilli/Power-Usage-Prediction/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
 5. Create a new Pull Request
 
-<!-- Markdown link & img dfn's -->
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
