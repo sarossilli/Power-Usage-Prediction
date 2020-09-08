@@ -40,8 +40,26 @@ After removing seasonality and data from the data, the trend is the only value l
 
 > ![](img/readme_img/trend.png)
 
-#### Data/Feature Engineering:
+## Initial Model: ARIMA
 
+The First initial attempt at modeling usage used an ARIMA model. This model requires a staionary trend dataset, so I spent time making the time series trend stationary.<br>
+To do this, I transformed my data into a difference in log scale weighted mean. The weighted mean in log scale was subtraced from the same shifted data to get a 'difference between times' dataset. After transformation the data looked like the following:
+<br>
+> ![](img/figures/mean_log.png)
+
+After stationarizing the data, I used statmodels module to create an ARIMA model. 
+<br>
+The initial results are as follows.
+The predicted power usage is in red, and the actual power usage is blue:
+> ![](img/figures/ARIMA_Pred.png)
+<br>
+And the general trend forcast for the next 4 years are shown in blue here:
+> ![](img/figures/forcast_ARIMA.png)
+<br>
+The benfits of this model is it was fast and simple to create. This model is somewhat limited though, since other variables like weather is dificult to incoperate in the model. In order to improve uppon this model, I explored several more modeling techniques
+
+# Second Model: Seq2Seq Network
+> Readme is a work in progress
 
 ## Meta
 
