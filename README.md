@@ -55,6 +55,7 @@ The predicted power usage is in red, and the actual power usage is blue:
 <br>
 And the general trend forcast for the next 4 years are shown in blue here:
 > ![](img/figures/forcast_ARIMA.png)
+
 <br>
 The benfits of this model is it was fast and simple to create. This model is somewhat limited though, since other variables like weather is dificult to incoperate in the model. In order to improve uppon this model, I explored several more modeling techniques
 
