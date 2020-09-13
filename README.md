@@ -1,5 +1,5 @@
-# Daily Power Usage Forcaster
-> A Time-Series Forcasting Project To Help Me Budget My Monthly Power Bill 
+> ![](img/readme_img/heder.gif)
+###### A Project to Forcast My Montly Power Usage And Bill
 
 I decided to start this project to help me accurately budget my montly bills. My montly electric bill swings wildly each month, depending on the season and other factors such as the acedemic calendar. I wanted to build a forcast system to automatically tell me how much I should expect to spend each month on power.
 
@@ -56,7 +56,6 @@ The predicted power usage is in red, and the actual power usage is blue:
 And the general trend forcast for the next 4 years are shown in blue here:
 
 > ![](img/figures/forcast_ARIMA.png)
-
 
 <br>
 The benfits of this model is it was fast and simple to create. This model is somewhat limited though, since other variables like weather is dificult to incoperate in the model. In order to improve uppon this model, I explored several more modeling techniques
